@@ -23,7 +23,7 @@ function prob3(){
         console.log(inputTxt)
     })
     console.log(inputTxt)
-}
+} // the synchrounous console.log will go first
 
 function prob4(){
     var dataTxt = fs.readFileSync("data.txt", "utf8")
@@ -33,8 +33,23 @@ function prob4(){
         console.log("starting aysnc operation")
         console.log(asyncData)
     }, 2000)
+    console.log("script complete")
+}
+
+function prob5(){
+    console.log("Countdown Initiated")
+    let x = 11
+    var countdown = setInterval(()=>{
+        x--
+        console.log(x)
+    }, 1000)
+    setTimeout(()=>{
+        clearInterval(countdown)
+        console.log("Liftoff")
+    }, 11000)
 }
 prob1()
 prob2()
 prob3()
 prob4()
+prob5()
